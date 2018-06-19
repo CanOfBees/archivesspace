@@ -178,6 +178,9 @@ class ArchivesSpaceService < Sinatra::Base
   end
 
   def merge_details(target, victim, selections, dry_run)
+    target[:linked_events] = []
+    victim[:linked_events] = []
+    
     selections.each_key do |key|
       path = key.split(".")
       path_fix = []
